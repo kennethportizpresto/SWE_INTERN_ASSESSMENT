@@ -1,0 +1,15 @@
+Is entering via the light blue boundary a common strategy used by Team2 on T (terrorist) side?:
+False, Team1 on CT side uses the chokepoint as a common strategy.
+
+What is the average timer that Team2 on T (terrorist) side enters 'BombsiteB' with least 2 rifles or SMGs?:
+45 seconds
+
+Now that we’ve gathered data on Team2 T side, let's examine their CT (counter-terrorist) Side. Using the same data set, tell our coaching staff where you suspect them to be waiting inside “BombsiteB:
+The Coordinate: (-892, 208, 96) is around where they will be waiting.
+
+(No Coding) Most of the time, our stakeholders (in this case, the CS:GO coaching staff) aren’t tech-savvy enough to run code themselves. 
+Propose a solution to your product manager:
+
+- The product manager should create simple instructions on uploading CSV onto Microsoft Excel. 
+- Moreover, the instructions should include tricks on filtering desired rows and columns, finding the sum of a column, and other relevant tricks that the stakeholder might need, such as creating graphs. 
+- Lastly, I would suggest the product manager tell the stakeholder to look up any other questions about Microsoft Excel through youtube.
