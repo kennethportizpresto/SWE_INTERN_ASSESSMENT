@@ -1,3 +1,0 @@
-The product manager should create simple instructions on uploading CSV onto Microsoft Excel. 
-Moreover, the instructions should include tricks on filtering desired rows and columns, finding the sum of a column, and other relevant tricks that the stakeholder might need, such as creating graphs. 
-Lastly, I would suggest the product manager tell the stakeholder to look up any other questions about Microsoft Excel through youtube.
