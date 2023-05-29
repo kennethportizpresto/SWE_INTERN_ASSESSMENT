@@ -34,6 +34,7 @@ class ProcessGameState:
         """
         valid_Points = set(zip(self.playerData['x'], self.playerData['y'], self.playerData['team'], self.playerData['side']))
         chokepointData = defaultdict(int)
+
         for x,y,t,s in valid_Points:
             if self._inside_chokepoint(x,y)== True:
                 chokepointData[(t,s)] += 1
@@ -60,8 +61,8 @@ class ProcessGameState:
         Rifles or SMGs (i.e. 1 rifle and 1 smg or 2 rifle and 0 smg or 0 rifle and 2 smg)
         """
         times = self._list_player_times(team, side, area)
-
         sum = 0
+
         for k,v in times.items():
             sum += k[0]
         return sum// len([k for k,v in times.items() if len(v) >= 1])
@@ -71,7 +72,6 @@ class ProcessGameState:
         HelperFunc filters player's enter/exited times based on team, side, place, and weapon.
         Returns a dictionary. Dictionary keys are tuples and values are a list of tuples.
         """
-        times = {}
         keys = []
         teamMemmber = self.allPlayers[(team, side)]
 
@@ -80,13 +80,15 @@ class ProcessGameState:
             weaponClass = self._list_times(data)
             keys.extend(weaponClass)
 
-        for i in keys:
-            if i not in times:
-                times[i] = []
-        for i in keys:
-            for k,v in times.items():
-                if i != k and i[0] < k[1]:
-                    times[k].append(i)
+        # Creates a dictionary with all enter/exit as keys and values as empty lists
+        times = {k:list() for k in keys}
+
+        # For each key check if a time's enter time is less than the key's exit time. 
+        # If true, append enter/exit time because of overlap.
+        for k in keys:
+            for tmp in keys:
+                if k != tmp and k[0] < tmp[1]:
+                    times[tmp].append(k)
         return times
 
     def _list_times(self, dataFrame):
@@ -117,6 +119,7 @@ class ProcessGameState:
         Returns a list of integers.
         """
         time = []
+
         for k,v in zip(dataFrame['seconds'], dataFrame['inventory']):
             if v[0]['weapon_class'] == 'Rifle' or v[0]['weapon_class'] == 'SMG':
                 if k not in time:
@@ -151,4 +154,4 @@ if __name__ == "__main__":
     print("Is entering via the light blue boundary a common strategy used by Team2 on T (terrorist) side?:")
     print("{}, {} on {} side uses the chokepoint as a common strategy.\n".format(dominantTeamSide == ('Team2', 'T'), dominantTeamSide[0], dominantTeamSide[1]))
     print("What is the average timer that Team2 on T (terrorist) side enters 'BombsiteB' with least 2 rifles or SMGs?:\n{} seconds\n".format(CounterStrikeMatch.averageTime('Team2', 'T', 'BombsiteB')))
-    print("Now that we’ve gathered data on Team2 T side, let's examine their CT (counter-terrorist) Side. Using the same data set, tell our coaching staff where you suspect them to be waiting inside “BombsiteB:\nThe Coordinate: {} is around where they will be waiting.".format(CounterStrikeMatch.heatMap('Team2', 'CT', 'BombsiteB')))
+    print("Now that we\'ve gathered data on Team2 T side, let's examine their CT (counter-terrorist) Side. Using the same data set, tell our coaching staff where you suspect them to be waiting inside 'BombsiteB':\nThe Coordinate: {} is around where they will be waiting.".format(CounterStrikeMatch.heatMap('Team2', 'CT', 'BombsiteB')))
