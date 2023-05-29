@@ -1,3 +1,1 @@
-The product manager should create simple instructions on how to upload csv onto microsoft excel. Moreover, the instructions should include
-useful tricks on how to filter desired rows and columns, find the sum of a column, and other relevant tricks that stakeholder might need such as creating graphs.
-Lastly, I would suggest that the product manager mention to the stakeholder if there are 'missing' instructions they can find those answers on youtube. 
+The product manager should create simple instructions on uploading CSV onto Microsoft Excel. Moreover, the instructions should include tricks on filtering desired rows and columns, finding the sum of a column, and other relevant tricks that the stakeholder might need, such as creating graphs. Lastly, I would suggest the product manager tell the stakeholder to look up any other questions about Microsoft Excel through youtube.
